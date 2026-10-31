@@ -1,0 +1,5 @@
+[
+  {"id":"semiconductor-digest","name":"Semiconductor Digest","kind":"rss","url":"https://www.semiconductor-digest.com/feed/","credibility":0.8,"enabled":true},
+  {"id":"usgs","name":"USGS Earthquake Hazards Program","kind":"usgs","url":"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson","credibility":0.98,"minimum_magnitude":4.5,"exposure_radius_km":300,"enabled":true},
+  {"id":"federal-register-bis","name":"Federal Register · BIS notices","kind":"federal_register","url":"https://www.federalregister.gov/api/v1/documents.json?conditions%5Bagencies%5D%5B%5D=industry-and-security-bureau&conditions%5Bterm%5D=semiconductor&order=newest&per_page=30","credibility":0.95,"enabled":true}
+]

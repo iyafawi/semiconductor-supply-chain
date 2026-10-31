@@ -1,0 +1,2344 @@
+{
+  "suppliers": [
+    {
+      "id": 0,
+      "name": "TSMC",
+      "category": "Foundry",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 24.580000000000002,
+      "lon": 120.7,
+      "risk": "Unknown"
+    },
+    {
+      "id": 1,
+      "name": "UMC",
+      "category": "Foundry",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 24.8,
+      "lon": 121,
+      "risk": "Unknown"
+    },
+    {
+      "id": 2,
+      "name": "Vanguard International",
+      "category": "Foundry",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 25.02,
+      "lon": 121.3,
+      "risk": "Unknown"
+    },
+    {
+      "id": 3,
+      "name": "Powerchip",
+      "category": "Foundry",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 24.580000000000002,
+      "lon": 121.6,
+      "risk": "Unknown"
+    },
+    {
+      "id": 4,
+      "name": "Intel Foundry",
+      "category": "Foundry",
+      "country": "United States",
+      "region": "North America",
+      "lat": 37.4,
+      "lon": -122.2,
+      "risk": "Unknown"
+    },
+    {
+      "id": 5,
+      "name": "GlobalFoundries",
+      "category": "Foundry",
+      "country": "United States",
+      "region": "North America",
+      "lat": 37.62,
+      "lon": -121.9,
+      "risk": "Unknown"
+    },
+    {
+      "id": 6,
+      "name": "SMIC",
+      "category": "Foundry",
+      "country": "China",
+      "region": "East Asia",
+      "lat": 30.98,
+      "lon": 121.8,
+      "risk": "Unknown"
+    },
+    {
+      "id": 7,
+      "name": "Hua Hong",
+      "category": "Foundry",
+      "country": "China",
+      "region": "East Asia",
+      "lat": 31.2,
+      "lon": 122.1,
+      "risk": "Unknown"
+    },
+    {
+      "id": 8,
+      "name": "SK hynix",
+      "category": "Memory",
+      "country": "South Korea",
+      "region": "East Asia",
+      "lat": 37.519999999999996,
+      "lon": 126.7,
+      "risk": "Unknown"
+    },
+    {
+      "id": 9,
+      "name": "Samsung Electronics",
+      "category": "Memory",
+      "country": "South Korea",
+      "region": "East Asia",
+      "lat": 37.08,
+      "lon": 127,
+      "risk": "Unknown"
+    },
+    {
+      "id": 10,
+      "name": "Micron",
+      "category": "Memory",
+      "country": "United States",
+      "region": "North America",
+      "lat": 43.6,
+      "lon": -115.9,
+      "risk": "Unknown"
+    },
+    {
+      "id": 11,
+      "name": "Western Digital",
+      "category": "Memory",
+      "country": "United States",
+      "region": "North America",
+      "lat": 43.82,
+      "lon": -115.60000000000001,
+      "risk": "Unknown"
+    },
+    {
+      "id": 12,
+      "name": "ASE Technology",
+      "category": "Packaging",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 22.380000000000003,
+      "lon": 120,
+      "risk": "Unknown"
+    },
+    {
+      "id": 13,
+      "name": "PTI",
+      "category": "Packaging",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 22.6,
+      "lon": 120.3,
+      "risk": "Unknown"
+    },
+    {
+      "id": 14,
+      "name": "ChipMOS",
+      "category": "Packaging",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 22.82,
+      "lon": 120.6,
+      "risk": "Unknown"
+    },
+    {
+      "id": 15,
+      "name": "KYEC",
+      "category": "Packaging",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 22.380000000000003,
+      "lon": 120.89999999999999,
+      "risk": "Unknown"
+    },
+    {
+      "id": 16,
+      "name": "Amkor",
+      "category": "Packaging",
+      "country": "United States",
+      "region": "North America",
+      "lat": 33.4,
+      "lon": -112.2,
+      "risk": "Unknown"
+    },
+    {
+      "id": 17,
+      "name": "JCET Americas",
+      "category": "Packaging",
+      "country": "United States",
+      "region": "North America",
+      "lat": 33.62,
+      "lon": -111.9,
+      "risk": "Unknown"
+    },
+    {
+      "id": 18,
+      "name": "Ibiden",
+      "category": "Substrate",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 34.980000000000004,
+      "lon": 137.3,
+      "risk": "Unknown"
+    },
+    {
+      "id": 19,
+      "name": "Shinko Electric",
+      "category": "Substrate",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.2,
+      "lon": 137.6,
+      "risk": "Unknown"
+    },
+    {
+      "id": 20,
+      "name": "Kyocera",
+      "category": "Substrate",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.42,
+      "lon": 136.7,
+      "risk": "Unknown"
+    },
+    {
+      "id": 21,
+      "name": "Unimicron",
+      "category": "Substrate",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 24.68,
+      "lon": 121.2,
+      "risk": "Unknown"
+    },
+    {
+      "id": 22,
+      "name": "Nan Ya PCB",
+      "category": "Substrate",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 24.9,
+      "lon": 121.5,
+      "risk": "Unknown"
+    },
+    {
+      "id": 23,
+      "name": "Kinsus",
+      "category": "Substrate",
+      "country": "Taiwan",
+      "region": "East Asia",
+      "lat": 25.119999999999997,
+      "lon": 121.8,
+      "risk": "Unknown"
+    },
+    {
+      "id": 24,
+      "name": "Shin-Etsu Chemical",
+      "category": "Materials",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.480000000000004,
+      "lon": 139.39999999999998,
+      "risk": "Unknown"
+    },
+    {
+      "id": 25,
+      "name": "SUMCO",
+      "category": "Materials",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.7,
+      "lon": 139.7,
+      "risk": "Unknown"
+    },
+    {
+      "id": 26,
+      "name": "JSR",
+      "category": "Materials",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.92,
+      "lon": 140,
+      "risk": "Unknown"
+    },
+    {
+      "id": 27,
+      "name": "TOK",
+      "category": "Materials",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.480000000000004,
+      "lon": 140.29999999999998,
+      "risk": "Unknown"
+    },
+    {
+      "id": 28,
+      "name": "Fujifilm",
+      "category": "Materials",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.7,
+      "lon": 139.39999999999998,
+      "risk": "Unknown"
+    },
+    {
+      "id": 29,
+      "name": "Resonac",
+      "category": "Materials",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.92,
+      "lon": 139.7,
+      "risk": "Unknown"
+    },
+    {
+      "id": 30,
+      "name": "Siltronic",
+      "category": "Materials",
+      "country": "Germany",
+      "region": "Europe",
+      "lat": 47.88,
+      "lon": 11.9,
+      "risk": "Unknown"
+    },
+    {
+      "id": 31,
+      "name": "BASF",
+      "category": "Materials",
+      "country": "Germany",
+      "region": "Europe",
+      "lat": 48.1,
+      "lon": 12.2,
+      "risk": "Unknown"
+    },
+    {
+      "id": 32,
+      "name": "Merck KGaA",
+      "category": "Materials",
+      "country": "Germany",
+      "region": "Europe",
+      "lat": 48.32,
+      "lon": 11.299999999999999,
+      "risk": "Unknown"
+    },
+    {
+      "id": 33,
+      "name": "Entegris",
+      "category": "Materials",
+      "country": "United States",
+      "region": "North America",
+      "lat": 40.28,
+      "lon": -75.5,
+      "risk": "Unknown"
+    },
+    {
+      "id": 34,
+      "name": "DuPont",
+      "category": "Materials",
+      "country": "United States",
+      "region": "North America",
+      "lat": 40.5,
+      "lon": -75.2,
+      "risk": "Unknown"
+    },
+    {
+      "id": 35,
+      "name": "Air Products",
+      "category": "Materials",
+      "country": "United States",
+      "region": "North America",
+      "lat": 40.72,
+      "lon": -74.9,
+      "risk": "Unknown"
+    },
+    {
+      "id": 36,
+      "name": "Soulbrain",
+      "category": "Materials",
+      "country": "South Korea",
+      "region": "East Asia",
+      "lat": 36.58,
+      "lon": 126.8,
+      "risk": "Unknown"
+    },
+    {
+      "id": 37,
+      "name": "SK Siltron",
+      "category": "Materials",
+      "country": "South Korea",
+      "region": "East Asia",
+      "lat": 36.8,
+      "lon": 127.1,
+      "risk": "Unknown"
+    },
+    {
+      "id": 38,
+      "name": "Texas Instruments",
+      "category": "Power",
+      "country": "United States",
+      "region": "North America",
+      "lat": 33.019999999999996,
+      "lon": -96.5,
+      "risk": "Unknown"
+    },
+    {
+      "id": 39,
+      "name": "onsemi",
+      "category": "Power",
+      "country": "United States",
+      "region": "North America",
+      "lat": 32.58,
+      "lon": -96.2,
+      "risk": "Unknown"
+    },
+    {
+      "id": 40,
+      "name": "Analog Devices",
+      "category": "Power",
+      "country": "United States",
+      "region": "North America",
+      "lat": 32.8,
+      "lon": -97.1,
+      "risk": "Unknown"
+    },
+    {
+      "id": 41,
+      "name": "Monolithic Power",
+      "category": "Power",
+      "country": "United States",
+      "region": "North America",
+      "lat": 33.019999999999996,
+      "lon": -96.8,
+      "risk": "Unknown"
+    },
+    {
+      "id": 42,
+      "name": "Infineon",
+      "category": "Power",
+      "country": "Germany",
+      "region": "Europe",
+      "lat": 47.980000000000004,
+      "lon": 11.9,
+      "risk": "Unknown"
+    },
+    {
+      "id": 43,
+      "name": "NXP",
+      "category": "Power",
+      "country": "Netherlands",
+      "region": "Europe",
+      "lat": 51.4,
+      "lon": 6,
+      "risk": "Unknown"
+    },
+    {
+      "id": 44,
+      "name": "Renesas",
+      "category": "Power",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.82,
+      "lon": 139.29999999999998,
+      "risk": "Unknown"
+    },
+    {
+      "id": 45,
+      "name": "ROHM",
+      "category": "Power",
+      "country": "Japan",
+      "region": "East Asia",
+      "lat": 35.38,
+      "lon": 139.6,
+      "risk": "Unknown"
+    },
+    {
+      "id": 46,
+      "name": "STMicroelectronics",
+      "category": "Power",
+      "country": "Switzerland",
+      "region": "Europe",
+      "lat": 46.2,
+      "lon": 6.3999999999999995,
+      "risk": "Unknown"
+    },
+    {
+      "id": 47,
+      "name": "Soitec",
+      "category": "Materials",
+      "country": "France",
+      "region": "Europe",
+      "lat": 45.42,
+      "lon": 6.3,
+      "risk": "Unknown"
+    }
+  ],
+  "components": [
+    {
+      "id": 0,
+      "name": "Compute die · 3nm",
+      "importance": 10,
+      "category": "Foundry",
+      "count": 1
+    },
+    {
+      "id": 1,
+      "name": "HBM3E",
+      "importance": 10,
+      "category": "Memory",
+      "count": 2
+    },
+    {
+      "id": 2,
+      "name": "Silicon interposer",
+      "importance": 9,
+      "category": "Packaging",
+      "count": 1
+    },
+    {
+      "id": 3,
+      "name": "CoWoS packaging",
+      "importance": 10,
+      "category": "Packaging",
+      "count": 2
+    },
+    {
+      "id": 4,
+      "name": "ABF substrate",
+      "importance": 9,
+      "category": "Substrate",
+      "count": 2
+    },
+    {
+      "id": 5,
+      "name": "DRAM",
+      "importance": 8,
+      "category": "Memory",
+      "count": 4
+    },
+    {
+      "id": 6,
+      "name": "NAND flash",
+      "importance": 6,
+      "category": "Memory",
+      "count": 4
+    },
+    {
+      "id": 7,
+      "name": "200mm wafers",
+      "importance": 6,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 8,
+      "name": "300mm wafers",
+      "importance": 8,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 9,
+      "name": "Photoresist",
+      "importance": 9,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 10,
+      "name": "High-purity gases",
+      "importance": 8,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 11,
+      "name": "CMP slurry",
+      "importance": 7,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 12,
+      "name": "Sputtering targets",
+      "importance": 6,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 13,
+      "name": "Wet chemicals",
+      "importance": 7,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 14,
+      "name": "SOI wafers",
+      "importance": 8,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 15,
+      "name": "Silicon carbide",
+      "importance": 8,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 16,
+      "name": "Gallium nitride",
+      "importance": 7,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 17,
+      "name": "Die attach film",
+      "importance": 6,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 18,
+      "name": "Encapsulation resin",
+      "importance": 6,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 19,
+      "name": "Bonding wire",
+      "importance": 5,
+      "category": "Materials",
+      "count": 16
+    },
+    {
+      "id": 20,
+      "name": "Mature-node logic",
+      "importance": 6,
+      "category": "Foundry",
+      "count": 8
+    },
+    {
+      "id": 21,
+      "name": "Compute die · 7nm",
+      "importance": 8,
+      "category": "Foundry",
+      "count": 8
+    },
+    {
+      "id": 22,
+      "name": "Analog fabrication",
+      "importance": 6,
+      "category": "Foundry",
+      "count": 8
+    },
+    {
+      "id": 23,
+      "name": "RF fabrication",
+      "importance": 7,
+      "category": "Foundry",
+      "count": 8
+    },
+    {
+      "id": 24,
+      "name": "FCBGA packaging",
+      "importance": 7,
+      "category": "Packaging",
+      "count": 6
+    },
+    {
+      "id": 25,
+      "name": "Wafer-level packaging",
+      "importance": 7,
+      "category": "Packaging",
+      "count": 6
+    },
+    {
+      "id": 26,
+      "name": "Organic substrate",
+      "importance": 7,
+      "category": "Substrate",
+      "count": 6
+    },
+    {
+      "id": 27,
+      "name": "Ceramic substrate",
+      "importance": 6,
+      "category": "Substrate",
+      "count": 6
+    },
+    {
+      "id": 28,
+      "name": "Voltage regulators",
+      "importance": 8,
+      "category": "Power",
+      "count": 10
+    },
+    {
+      "id": 29,
+      "name": "Power MOSFETs",
+      "importance": 7,
+      "category": "Power",
+      "count": 10
+    },
+    {
+      "id": 30,
+      "name": "Power management ICs",
+      "importance": 9,
+      "category": "Power",
+      "count": 10
+    },
+    {
+      "id": 31,
+      "name": "Gate drivers",
+      "importance": 6,
+      "category": "Power",
+      "count": 10
+    }
+  ],
+  "relationships": [
+    {
+      "supplier": 0,
+      "component": 0
+    },
+    {
+      "supplier": 8,
+      "component": 1
+    },
+    {
+      "supplier": 9,
+      "component": 1
+    },
+    {
+      "supplier": 12,
+      "component": 2
+    },
+    {
+      "supplier": 12,
+      "component": 3
+    },
+    {
+      "supplier": 13,
+      "component": 3
+    },
+    {
+      "supplier": 18,
+      "component": 4
+    },
+    {
+      "supplier": 19,
+      "component": 4
+    },
+    {
+      "supplier": 9,
+      "component": 5
+    },
+    {
+      "supplier": 10,
+      "component": 5
+    },
+    {
+      "supplier": 11,
+      "component": 5
+    },
+    {
+      "supplier": 8,
+      "component": 5
+    },
+    {
+      "supplier": 10,
+      "component": 6
+    },
+    {
+      "supplier": 11,
+      "component": 6
+    },
+    {
+      "supplier": 8,
+      "component": 6
+    },
+    {
+      "supplier": 9,
+      "component": 6
+    },
+    {
+      "supplier": 31,
+      "component": 7
+    },
+    {
+      "supplier": 32,
+      "component": 7
+    },
+    {
+      "supplier": 33,
+      "component": 7
+    },
+    {
+      "supplier": 34,
+      "component": 7
+    },
+    {
+      "supplier": 35,
+      "component": 7
+    },
+    {
+      "supplier": 36,
+      "component": 7
+    },
+    {
+      "supplier": 37,
+      "component": 7
+    },
+    {
+      "supplier": 47,
+      "component": 7
+    },
+    {
+      "supplier": 24,
+      "component": 7
+    },
+    {
+      "supplier": 25,
+      "component": 7
+    },
+    {
+      "supplier": 26,
+      "component": 7
+    },
+    {
+      "supplier": 27,
+      "component": 7
+    },
+    {
+      "supplier": 28,
+      "component": 7
+    },
+    {
+      "supplier": 29,
+      "component": 7
+    },
+    {
+      "supplier": 30,
+      "component": 7
+    },
+    {
+      "supplier": 32,
+      "component": 8
+    },
+    {
+      "supplier": 33,
+      "component": 8
+    },
+    {
+      "supplier": 34,
+      "component": 8
+    },
+    {
+      "supplier": 35,
+      "component": 8
+    },
+    {
+      "supplier": 36,
+      "component": 8
+    },
+    {
+      "supplier": 37,
+      "component": 8
+    },
+    {
+      "supplier": 47,
+      "component": 8
+    },
+    {
+      "supplier": 24,
+      "component": 8
+    },
+    {
+      "supplier": 25,
+      "component": 8
+    },
+    {
+      "supplier": 26,
+      "component": 8
+    },
+    {
+      "supplier": 27,
+      "component": 8
+    },
+    {
+      "supplier": 28,
+      "component": 8
+    },
+    {
+      "supplier": 29,
+      "component": 8
+    },
+    {
+      "supplier": 30,
+      "component": 8
+    },
+    {
+      "supplier": 31,
+      "component": 8
+    },
+    {
+      "supplier": 33,
+      "component": 9
+    },
+    {
+      "supplier": 34,
+      "component": 9
+    },
+    {
+      "supplier": 35,
+      "component": 9
+    },
+    {
+      "supplier": 36,
+      "component": 9
+    },
+    {
+      "supplier": 37,
+      "component": 9
+    },
+    {
+      "supplier": 47,
+      "component": 9
+    },
+    {
+      "supplier": 24,
+      "component": 9
+    },
+    {
+      "supplier": 25,
+      "component": 9
+    },
+    {
+      "supplier": 26,
+      "component": 9
+    },
+    {
+      "supplier": 27,
+      "component": 9
+    },
+    {
+      "supplier": 28,
+      "component": 9
+    },
+    {
+      "supplier": 29,
+      "component": 9
+    },
+    {
+      "supplier": 30,
+      "component": 9
+    },
+    {
+      "supplier": 31,
+      "component": 9
+    },
+    {
+      "supplier": 32,
+      "component": 9
+    },
+    {
+      "supplier": 34,
+      "component": 10
+    },
+    {
+      "supplier": 35,
+      "component": 10
+    },
+    {
+      "supplier": 36,
+      "component": 10
+    },
+    {
+      "supplier": 37,
+      "component": 10
+    },
+    {
+      "supplier": 47,
+      "component": 10
+    },
+    {
+      "supplier": 24,
+      "component": 10
+    },
+    {
+      "supplier": 25,
+      "component": 10
+    },
+    {
+      "supplier": 26,
+      "component": 10
+    },
+    {
+      "supplier": 27,
+      "component": 10
+    },
+    {
+      "supplier": 28,
+      "component": 10
+    },
+    {
+      "supplier": 29,
+      "component": 10
+    },
+    {
+      "supplier": 30,
+      "component": 10
+    },
+    {
+      "supplier": 31,
+      "component": 10
+    },
+    {
+      "supplier": 32,
+      "component": 10
+    },
+    {
+      "supplier": 33,
+      "component": 10
+    },
+    {
+      "supplier": 35,
+      "component": 11
+    },
+    {
+      "supplier": 36,
+      "component": 11
+    },
+    {
+      "supplier": 37,
+      "component": 11
+    },
+    {
+      "supplier": 47,
+      "component": 11
+    },
+    {
+      "supplier": 24,
+      "component": 11
+    },
+    {
+      "supplier": 25,
+      "component": 11
+    },
+    {
+      "supplier": 26,
+      "component": 11
+    },
+    {
+      "supplier": 27,
+      "component": 11
+    },
+    {
+      "supplier": 28,
+      "component": 11
+    },
+    {
+      "supplier": 29,
+      "component": 11
+    },
+    {
+      "supplier": 30,
+      "component": 11
+    },
+    {
+      "supplier": 31,
+      "component": 11
+    },
+    {
+      "supplier": 32,
+      "component": 11
+    },
+    {
+      "supplier": 33,
+      "component": 11
+    },
+    {
+      "supplier": 34,
+      "component": 11
+    },
+    {
+      "supplier": 36,
+      "component": 12
+    },
+    {
+      "supplier": 37,
+      "component": 12
+    },
+    {
+      "supplier": 47,
+      "component": 12
+    },
+    {
+      "supplier": 24,
+      "component": 12
+    },
+    {
+      "supplier": 25,
+      "component": 12
+    },
+    {
+      "supplier": 26,
+      "component": 12
+    },
+    {
+      "supplier": 27,
+      "component": 12
+    },
+    {
+      "supplier": 28,
+      "component": 12
+    },
+    {
+      "supplier": 29,
+      "component": 12
+    },
+    {
+      "supplier": 30,
+      "component": 12
+    },
+    {
+      "supplier": 31,
+      "component": 12
+    },
+    {
+      "supplier": 32,
+      "component": 12
+    },
+    {
+      "supplier": 33,
+      "component": 12
+    },
+    {
+      "supplier": 34,
+      "component": 12
+    },
+    {
+      "supplier": 35,
+      "component": 12
+    },
+    {
+      "supplier": 37,
+      "component": 13
+    },
+    {
+      "supplier": 47,
+      "component": 13
+    },
+    {
+      "supplier": 24,
+      "component": 13
+    },
+    {
+      "supplier": 25,
+      "component": 13
+    },
+    {
+      "supplier": 26,
+      "component": 13
+    },
+    {
+      "supplier": 27,
+      "component": 13
+    },
+    {
+      "supplier": 28,
+      "component": 13
+    },
+    {
+      "supplier": 29,
+      "component": 13
+    },
+    {
+      "supplier": 30,
+      "component": 13
+    },
+    {
+      "supplier": 31,
+      "component": 13
+    },
+    {
+      "supplier": 32,
+      "component": 13
+    },
+    {
+      "supplier": 33,
+      "component": 13
+    },
+    {
+      "supplier": 34,
+      "component": 13
+    },
+    {
+      "supplier": 35,
+      "component": 13
+    },
+    {
+      "supplier": 36,
+      "component": 13
+    },
+    {
+      "supplier": 47,
+      "component": 14
+    },
+    {
+      "supplier": 24,
+      "component": 14
+    },
+    {
+      "supplier": 25,
+      "component": 14
+    },
+    {
+      "supplier": 26,
+      "component": 14
+    },
+    {
+      "supplier": 27,
+      "component": 14
+    },
+    {
+      "supplier": 28,
+      "component": 14
+    },
+    {
+      "supplier": 29,
+      "component": 14
+    },
+    {
+      "supplier": 30,
+      "component": 14
+    },
+    {
+      "supplier": 31,
+      "component": 14
+    },
+    {
+      "supplier": 32,
+      "component": 14
+    },
+    {
+      "supplier": 33,
+      "component": 14
+    },
+    {
+      "supplier": 34,
+      "component": 14
+    },
+    {
+      "supplier": 35,
+      "component": 14
+    },
+    {
+      "supplier": 36,
+      "component": 14
+    },
+    {
+      "supplier": 37,
+      "component": 14
+    },
+    {
+      "supplier": 24,
+      "component": 15
+    },
+    {
+      "supplier": 25,
+      "component": 15
+    },
+    {
+      "supplier": 26,
+      "component": 15
+    },
+    {
+      "supplier": 27,
+      "component": 15
+    },
+    {
+      "supplier": 28,
+      "component": 15
+    },
+    {
+      "supplier": 29,
+      "component": 15
+    },
+    {
+      "supplier": 30,
+      "component": 15
+    },
+    {
+      "supplier": 31,
+      "component": 15
+    },
+    {
+      "supplier": 32,
+      "component": 15
+    },
+    {
+      "supplier": 33,
+      "component": 15
+    },
+    {
+      "supplier": 34,
+      "component": 15
+    },
+    {
+      "supplier": 35,
+      "component": 15
+    },
+    {
+      "supplier": 36,
+      "component": 15
+    },
+    {
+      "supplier": 37,
+      "component": 15
+    },
+    {
+      "supplier": 47,
+      "component": 15
+    },
+    {
+      "supplier": 25,
+      "component": 16
+    },
+    {
+      "supplier": 26,
+      "component": 16
+    },
+    {
+      "supplier": 27,
+      "component": 16
+    },
+    {
+      "supplier": 28,
+      "component": 16
+    },
+    {
+      "supplier": 29,
+      "component": 16
+    },
+    {
+      "supplier": 30,
+      "component": 16
+    },
+    {
+      "supplier": 31,
+      "component": 16
+    },
+    {
+      "supplier": 32,
+      "component": 16
+    },
+    {
+      "supplier": 33,
+      "component": 16
+    },
+    {
+      "supplier": 34,
+      "component": 16
+    },
+    {
+      "supplier": 35,
+      "component": 16
+    },
+    {
+      "supplier": 36,
+      "component": 16
+    },
+    {
+      "supplier": 37,
+      "component": 16
+    },
+    {
+      "supplier": 47,
+      "component": 16
+    },
+    {
+      "supplier": 24,
+      "component": 16
+    },
+    {
+      "supplier": 26,
+      "component": 17
+    },
+    {
+      "supplier": 27,
+      "component": 17
+    },
+    {
+      "supplier": 28,
+      "component": 17
+    },
+    {
+      "supplier": 29,
+      "component": 17
+    },
+    {
+      "supplier": 30,
+      "component": 17
+    },
+    {
+      "supplier": 31,
+      "component": 17
+    },
+    {
+      "supplier": 32,
+      "component": 17
+    },
+    {
+      "supplier": 33,
+      "component": 17
+    },
+    {
+      "supplier": 34,
+      "component": 17
+    },
+    {
+      "supplier": 35,
+      "component": 17
+    },
+    {
+      "supplier": 36,
+      "component": 17
+    },
+    {
+      "supplier": 37,
+      "component": 17
+    },
+    {
+      "supplier": 47,
+      "component": 17
+    },
+    {
+      "supplier": 24,
+      "component": 17
+    },
+    {
+      "supplier": 25,
+      "component": 17
+    },
+    {
+      "supplier": 27,
+      "component": 18
+    },
+    {
+      "supplier": 28,
+      "component": 18
+    },
+    {
+      "supplier": 29,
+      "component": 18
+    },
+    {
+      "supplier": 30,
+      "component": 18
+    },
+    {
+      "supplier": 31,
+      "component": 18
+    },
+    {
+      "supplier": 32,
+      "component": 18
+    },
+    {
+      "supplier": 33,
+      "component": 18
+    },
+    {
+      "supplier": 34,
+      "component": 18
+    },
+    {
+      "supplier": 35,
+      "component": 18
+    },
+    {
+      "supplier": 36,
+      "component": 18
+    },
+    {
+      "supplier": 37,
+      "component": 18
+    },
+    {
+      "supplier": 47,
+      "component": 18
+    },
+    {
+      "supplier": 24,
+      "component": 18
+    },
+    {
+      "supplier": 25,
+      "component": 18
+    },
+    {
+      "supplier": 26,
+      "component": 18
+    },
+    {
+      "supplier": 28,
+      "component": 19
+    },
+    {
+      "supplier": 29,
+      "component": 19
+    },
+    {
+      "supplier": 30,
+      "component": 19
+    },
+    {
+      "supplier": 31,
+      "component": 19
+    },
+    {
+      "supplier": 32,
+      "component": 19
+    },
+    {
+      "supplier": 33,
+      "component": 19
+    },
+    {
+      "supplier": 34,
+      "component": 19
+    },
+    {
+      "supplier": 35,
+      "component": 19
+    },
+    {
+      "supplier": 36,
+      "component": 19
+    },
+    {
+      "supplier": 37,
+      "component": 19
+    },
+    {
+      "supplier": 47,
+      "component": 19
+    },
+    {
+      "supplier": 24,
+      "component": 19
+    },
+    {
+      "supplier": 25,
+      "component": 19
+    },
+    {
+      "supplier": 26,
+      "component": 19
+    },
+    {
+      "supplier": 27,
+      "component": 19
+    },
+    {
+      "supplier": 4,
+      "component": 20
+    },
+    {
+      "supplier": 5,
+      "component": 20
+    },
+    {
+      "supplier": 6,
+      "component": 20
+    },
+    {
+      "supplier": 7,
+      "component": 20
+    },
+    {
+      "supplier": 0,
+      "component": 20
+    },
+    {
+      "supplier": 1,
+      "component": 20
+    },
+    {
+      "supplier": 2,
+      "component": 20
+    },
+    {
+      "supplier": 3,
+      "component": 20
+    },
+    {
+      "supplier": 5,
+      "component": 21
+    },
+    {
+      "supplier": 6,
+      "component": 21
+    },
+    {
+      "supplier": 7,
+      "component": 21
+    },
+    {
+      "supplier": 0,
+      "component": 21
+    },
+    {
+      "supplier": 1,
+      "component": 21
+    },
+    {
+      "supplier": 2,
+      "component": 21
+    },
+    {
+      "supplier": 3,
+      "component": 21
+    },
+    {
+      "supplier": 4,
+      "component": 21
+    },
+    {
+      "supplier": 6,
+      "component": 22
+    },
+    {
+      "supplier": 7,
+      "component": 22
+    },
+    {
+      "supplier": 0,
+      "component": 22
+    },
+    {
+      "supplier": 1,
+      "component": 22
+    },
+    {
+      "supplier": 2,
+      "component": 22
+    },
+    {
+      "supplier": 3,
+      "component": 22
+    },
+    {
+      "supplier": 4,
+      "component": 22
+    },
+    {
+      "supplier": 5,
+      "component": 22
+    },
+    {
+      "supplier": 7,
+      "component": 23
+    },
+    {
+      "supplier": 0,
+      "component": 23
+    },
+    {
+      "supplier": 1,
+      "component": 23
+    },
+    {
+      "supplier": 2,
+      "component": 23
+    },
+    {
+      "supplier": 3,
+      "component": 23
+    },
+    {
+      "supplier": 4,
+      "component": 23
+    },
+    {
+      "supplier": 5,
+      "component": 23
+    },
+    {
+      "supplier": 6,
+      "component": 23
+    },
+    {
+      "supplier": 12,
+      "component": 24
+    },
+    {
+      "supplier": 13,
+      "component": 24
+    },
+    {
+      "supplier": 14,
+      "component": 24
+    },
+    {
+      "supplier": 15,
+      "component": 24
+    },
+    {
+      "supplier": 16,
+      "component": 24
+    },
+    {
+      "supplier": 17,
+      "component": 24
+    },
+    {
+      "supplier": 13,
+      "component": 25
+    },
+    {
+      "supplier": 14,
+      "component": 25
+    },
+    {
+      "supplier": 15,
+      "component": 25
+    },
+    {
+      "supplier": 16,
+      "component": 25
+    },
+    {
+      "supplier": 17,
+      "component": 25
+    },
+    {
+      "supplier": 12,
+      "component": 25
+    },
+    {
+      "supplier": 20,
+      "component": 26
+    },
+    {
+      "supplier": 21,
+      "component": 26
+    },
+    {
+      "supplier": 22,
+      "component": 26
+    },
+    {
+      "supplier": 23,
+      "component": 26
+    },
+    {
+      "supplier": 18,
+      "component": 26
+    },
+    {
+      "supplier": 19,
+      "component": 26
+    },
+    {
+      "supplier": 21,
+      "component": 27
+    },
+    {
+      "supplier": 22,
+      "component": 27
+    },
+    {
+      "supplier": 23,
+      "component": 27
+    },
+    {
+      "supplier": 18,
+      "component": 27
+    },
+    {
+      "supplier": 19,
+      "component": 27
+    },
+    {
+      "supplier": 20,
+      "component": 27
+    },
+    {
+      "supplier": 39,
+      "component": 28
+    },
+    {
+      "supplier": 40,
+      "component": 28
+    },
+    {
+      "supplier": 41,
+      "component": 28
+    },
+    {
+      "supplier": 42,
+      "component": 28
+    },
+    {
+      "supplier": 43,
+      "component": 28
+    },
+    {
+      "supplier": 44,
+      "component": 28
+    },
+    {
+      "supplier": 45,
+      "component": 28
+    },
+    {
+      "supplier": 46,
+      "component": 28
+    },
+    {
+      "supplier": 38,
+      "component": 28
+    },
+    {
+      "supplier": 40,
+      "component": 29
+    },
+    {
+      "supplier": 41,
+      "component": 29
+    },
+    {
+      "supplier": 42,
+      "component": 29
+    },
+    {
+      "supplier": 43,
+      "component": 29
+    },
+    {
+      "supplier": 44,
+      "component": 29
+    },
+    {
+      "supplier": 45,
+      "component": 29
+    },
+    {
+      "supplier": 46,
+      "component": 29
+    },
+    {
+      "supplier": 38,
+      "component": 29
+    },
+    {
+      "supplier": 39,
+      "component": 29
+    },
+    {
+      "supplier": 41,
+      "component": 30
+    },
+    {
+      "supplier": 42,
+      "component": 30
+    },
+    {
+      "supplier": 43,
+      "component": 30
+    },
+    {
+      "supplier": 44,
+      "component": 30
+    },
+    {
+      "supplier": 45,
+      "component": 30
+    },
+    {
+      "supplier": 46,
+      "component": 30
+    },
+    {
+      "supplier": 38,
+      "component": 30
+    },
+    {
+      "supplier": 39,
+      "component": 30
+    },
+    {
+      "supplier": 40,
+      "component": 30
+    },
+    {
+      "supplier": 42,
+      "component": 31
+    },
+    {
+      "supplier": 43,
+      "component": 31
+    },
+    {
+      "supplier": 44,
+      "component": 31
+    },
+    {
+      "supplier": 45,
+      "component": 31
+    },
+    {
+      "supplier": 46,
+      "component": 31
+    },
+    {
+      "supplier": 38,
+      "component": 31
+    },
+    {
+      "supplier": 39,
+      "component": 31
+    },
+    {
+      "supplier": 40,
+      "component": 31
+    },
+    {
+      "supplier": 41,
+      "component": 31
+    }
+  ],
+  "events": [],
+  "scenarios": [
+    {
+      "id": "s0",
+      "name": "TSMC unavailable",
+      "suppliers": [
+        0
+      ]
+    },
+    {
+      "id": "s1",
+      "name": "UMC unavailable",
+      "suppliers": [
+        1
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "Vanguard International unavailable",
+      "suppliers": [
+        2
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Powerchip unavailable",
+      "suppliers": [
+        3
+      ]
+    },
+    {
+      "id": "s4",
+      "name": "Intel Foundry unavailable",
+      "suppliers": [
+        4
+      ]
+    },
+    {
+      "id": "s5",
+      "name": "GlobalFoundries unavailable",
+      "suppliers": [
+        5
+      ]
+    },
+    {
+      "id": "s6",
+      "name": "SMIC unavailable",
+      "suppliers": [
+        6
+      ]
+    },
+    {
+      "id": "s7",
+      "name": "Hua Hong unavailable",
+      "suppliers": [
+        7
+      ]
+    },
+    {
+      "id": "s8",
+      "name": "SK hynix unavailable",
+      "suppliers": [
+        8
+      ]
+    },
+    {
+      "id": "s9",
+      "name": "Samsung Electronics unavailable",
+      "suppliers": [
+        9
+      ]
+    },
+    {
+      "id": "s10",
+      "name": "Micron unavailable",
+      "suppliers": [
+        10
+      ]
+    },
+    {
+      "id": "s11",
+      "name": "Western Digital unavailable",
+      "suppliers": [
+        11
+      ]
+    },
+    {
+      "id": "s12",
+      "name": "ASE Technology unavailable",
+      "suppliers": [
+        12
+      ]
+    },
+    {
+      "id": "s13",
+      "name": "PTI unavailable",
+      "suppliers": [
+        13
+      ]
+    },
+    {
+      "id": "s14",
+      "name": "ChipMOS unavailable",
+      "suppliers": [
+        14
+      ]
+    },
+    {
+      "id": "s15",
+      "name": "KYEC unavailable",
+      "suppliers": [
+        15
+      ]
+    },
+    {
+      "id": "s16",
+      "name": "Amkor unavailable",
+      "suppliers": [
+        16
+      ]
+    },
+    {
+      "id": "s17",
+      "name": "JCET Americas unavailable",
+      "suppliers": [
+        17
+      ]
+    },
+    {
+      "id": "s18",
+      "name": "Ibiden unavailable",
+      "suppliers": [
+        18
+      ]
+    },
+    {
+      "id": "s19",
+      "name": "Shinko Electric unavailable",
+      "suppliers": [
+        19
+      ]
+    },
+    {
+      "id": "s20",
+      "name": "Kyocera unavailable",
+      "suppliers": [
+        20
+      ]
+    },
+    {
+      "id": "s21",
+      "name": "Unimicron unavailable",
+      "suppliers": [
+        21
+      ]
+    },
+    {
+      "id": "s22",
+      "name": "Nan Ya PCB unavailable",
+      "suppliers": [
+        22
+      ]
+    },
+    {
+      "id": "s23",
+      "name": "Kinsus unavailable",
+      "suppliers": [
+        23
+      ]
+    },
+    {
+      "id": "s24",
+      "name": "Shin-Etsu Chemical unavailable",
+      "suppliers": [
+        24
+      ]
+    },
+    {
+      "id": "s25",
+      "name": "SUMCO unavailable",
+      "suppliers": [
+        25
+      ]
+    },
+    {
+      "id": "s26",
+      "name": "JSR unavailable",
+      "suppliers": [
+        26
+      ]
+    },
+    {
+      "id": "s27",
+      "name": "TOK unavailable",
+      "suppliers": [
+        27
+      ]
+    },
+    {
+      "id": "s28",
+      "name": "Fujifilm unavailable",
+      "suppliers": [
+        28
+      ]
+    },
+    {
+      "id": "s29",
+      "name": "Resonac unavailable",
+      "suppliers": [
+        29
+      ]
+    },
+    {
+      "id": "s30",
+      "name": "Siltronic unavailable",
+      "suppliers": [
+        30
+      ]
+    },
+    {
+      "id": "s31",
+      "name": "BASF unavailable",
+      "suppliers": [
+        31
+      ]
+    },
+    {
+      "id": "s32",
+      "name": "Merck KGaA unavailable",
+      "suppliers": [
+        32
+      ]
+    },
+    {
+      "id": "s33",
+      "name": "Entegris unavailable",
+      "suppliers": [
+        33
+      ]
+    },
+    {
+      "id": "s34",
+      "name": "DuPont unavailable",
+      "suppliers": [
+        34
+      ]
+    },
+    {
+      "id": "s35",
+      "name": "Air Products unavailable",
+      "suppliers": [
+        35
+      ]
+    },
+    {
+      "id": "s36",
+      "name": "Soulbrain unavailable",
+      "suppliers": [
+        36
+      ]
+    },
+    {
+      "id": "s37",
+      "name": "SK Siltron unavailable",
+      "suppliers": [
+        37
+      ]
+    },
+    {
+      "id": "s38",
+      "name": "Texas Instruments unavailable",
+      "suppliers": [
+        38
+      ]
+    },
+    {
+      "id": "s39",
+      "name": "onsemi unavailable",
+      "suppliers": [
+        39
+      ]
+    },
+    {
+      "id": "s40",
+      "name": "Analog Devices unavailable",
+      "suppliers": [
+        40
+      ]
+    },
+    {
+      "id": "s41",
+      "name": "Monolithic Power unavailable",
+      "suppliers": [
+        41
+      ]
+    },
+    {
+      "id": "s42",
+      "name": "Infineon unavailable",
+      "suppliers": [
+        42
+      ]
+    },
+    {
+      "id": "s43",
+      "name": "NXP unavailable",
+      "suppliers": [
+        43
+      ]
+    },
+    {
+      "id": "s44",
+      "name": "Renesas unavailable",
+      "suppliers": [
+        44
+      ]
+    },
+    {
+      "id": "s45",
+      "name": "ROHM unavailable",
+      "suppliers": [
+        45
+      ]
+    },
+    {
+      "id": "s46",
+      "name": "STMicroelectronics unavailable",
+      "suppliers": [
+        46
+      ]
+    },
+    {
+      "id": "s47",
+      "name": "Soitec unavailable",
+      "suppliers": [
+        47
+      ]
+    },
+    {
+      "id": "rTaiwan",
+      "name": "Taiwan regional disruption",
+      "suppliers": [
+        0,
+        1,
+        2,
+        3,
+        12,
+        13,
+        14,
+        15,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "id": "rJapan",
+      "name": "Japan regional disruption",
+      "suppliers": [
+        18,
+        19,
+        20,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        44,
+        45
+      ]
+    },
+    {
+      "id": "rSouth Korea",
+      "name": "South Korea regional disruption",
+      "suppliers": [
+        8,
+        9,
+        36,
+        37
+      ]
+    },
+    {
+      "id": "rUnited States",
+      "name": "United States regional disruption",
+      "suppliers": [
+        4,
+        5,
+        10,
+        11,
+        16,
+        17,
+        33,
+        34,
+        35,
+        38,
+        39,
+        40,
+        41
+      ]
+    },
+    {
+      "id": "rGermany",
+      "name": "Germany regional disruption",
+      "suppliers": [
+        30,
+        31,
+        32,
+        42
+      ]
+    },
+    {
+      "id": "rChina",
+      "name": "China regional disruption",
+      "suppliers": [
+        6,
+        7
+      ]
+    }
+  ]
+}

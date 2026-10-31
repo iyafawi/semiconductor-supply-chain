@@ -1,0 +1,17 @@
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.venv/
+.env*
+review/
+.local-runtime/
+!.env.example
+*.tar.gz
+
+.openai/
+*.log
+*.zip
+*.bak
+*.mdf
+*.ldf
