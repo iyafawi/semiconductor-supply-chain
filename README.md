@@ -3,6 +3,8 @@
 
 **Find the news that matters. See which suppliers may be exposed. Understand which components depend on them.**
 
+**Built with:** Python · FastAPI · React / JavaScript · SQL Server · OpenAI API
+
 ## The problem
 
 A chip depends on many suppliers. A factory shutdown, export restriction or earthquake can put part of that supply chain at risk. Reading headlines alone does not tell a procurement team which suppliers to investigate or which components have no backup source.
@@ -12,6 +14,21 @@ A chip depends on many suppliers. A factory shutdown, export restriction or eart
 Silicon Watch connects current news to a supplier-component network. It collects reports, removes noise, matches relevant suppliers and shows potential exposure in a dashboard. You can then simulate losing a supplier to see which components lose coverage.
 
 The project was inspired by **[World Monitor](https://github.com/koala73/worldmonitor)** and its approach to bringing news and geographic context into one view. Silicon Watch applies that idea to semiconductor sourcing. It is an independent project, not an official World Monitor product.
+
+## Tested with industry users
+
+Procurement employees at **Tenstorrent** used and tested the dashboard, providing an opportunity to evaluate the tool with people working directly in semiconductor sourcing. This describes hands-on user testing, not an official company endorsement or production deployment.
+
+## Technology stack
+
+| Technology | Role |
+|---|---|
+| Python | News collection, data cleaning, supplier matching and risk analysis |
+| FastAPI | Backend endpoints connecting the database to the dashboard |
+| React / JavaScript | Interactive dashboard, supplier views and disruption simulations |
+| SQL Server / SQL | Supplier relationships, news evidence and risk history |
+| OpenAI API | Live web search for recent semiconductor news |
+| CSS / HTML | Dashboard layout and styling |
 
 ## The whole pipeline
 

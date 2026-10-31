@@ -2,7 +2,7 @@
 
 Suggested pinned repository description:
 
-Semiconductor supply-chain monitoring with OpenAI web search, supplier matching, SQL Server and an interactive React risk dashboard.
+Semiconductor supply-chain risk dashboard built with Python/FastAPI, React/JavaScript, SQL Server and OpenAI web search. Used and tested by procurement employees at Tenstorrent.
 
 Profile README entry:
 
