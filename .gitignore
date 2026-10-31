@@ -15,3 +15,5 @@ review/
 *.bak
 *.mdf
 *.ldf
+
+.format-tools/

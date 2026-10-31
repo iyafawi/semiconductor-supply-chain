@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.format-tools/
+public/world.json
+backend/seed/network.json
+package-lock.json

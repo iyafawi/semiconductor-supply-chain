@@ -6,7 +6,7 @@
 
 OpenAI calls the Responses API with `web_search`, live access enabled and tool choice required. It requests at most 10 articles from the past seven days per cycle. It is a bounded discovery query, not an exhaustive search of every tracked supplier. The model is configurable. [Official web-search documentation](https://developers.openai.com/api/docs/guides/tools-web-search).
 
-The parser requires a completed search and response, valid JSON, a cited HTTPS URL and a recent publication timestamp. Unsupported records are dropped; an entirely invalid nonempty response fails the source. A genuinely empty result is valid. The model's date and summary are still unverified interpretations. The application does not fetch each full article to independently verify them.
+The parser requires a completed search and response, valid JSON, a cited HTTPS URL and a recent publication timestamp. Unsupported records are dropped; an entirely invalid nonempty response fails the source. An empty result is valid. The model's date and summary are still unverified interpretations. The application does not fetch each full article to independently verify them.
 
 OpenAI articles are labeled “OpenAI web search (AI summary)”. The source URL is preserved and clickable. Their publication confidence is reduced so rule processing cannot label them as confirmed interruptions. A search citation establishes provenance, not truth.
 

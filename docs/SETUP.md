@@ -1,75 +1,70 @@
-# Silicon Watch — private local live monitoring
+# Local setup
 
-The application runs entirely on your computer. Python retrieves real external feeds; SQL Server persists articles, events, sourcing records, current risk and risk history; FastAPI serves the processed records; React automatically refreshes. Runtime persistence has no SQLite, JSON, in-memory or mock fallback.
+## Prerequisites
 
-The 48 suppliers, 32 components, 303 relationships and supplier coordinates are an illustrative sourcing model. Live articles and earthquake reports are real. A nearby earthquake indicates potential exposure, not proven damage or production interruption.
+- Windows with PowerShell.
+- Python 3.11+ and Node.js 22+ with npm on PATH.
+- SQL Server Express and Microsoft ODBC Driver 18.
+- An OpenAI API key if web search is enabled.
+
+The default connection uses Windows authentication against `localhost\SQLEXPRESS`. The Windows account must be able to create the database and apply migrations during setup.
+
+## Install
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Edit `SQLSERVER_CONNECTION_STRING` and `SQLSERVER_DATABASE` for your SQL Server instance. Set `OPENAI_NEWS_ENABLED=true` and `OPENAI_API_KEY` to enable paid web searches. Leave it false to run the other feeds without OpenAI.
+
+```powershell
+.\setup-local.ps1
+```
+
+The script creates a virtual environment, installs dependencies, initializes the database and builds the frontend. It uses the committed npm lockfile. To select a particular Python executable, set `SILICONWATCH_PYTHON` to its path.
+
+If SQL Server and ODBC are not installed, the optional command below installs them through Windows Package Manager and accepts the package agreements. Installation may require administrator access.
+
+```powershell
+.\setup-local.ps1 -InstallSqlServer
+```
 
 ## Start and stop
 
-SQL Server 2025 Express (localhost\SQLEXPRESS), Microsoft ODBC Driver 18, the SiliconWatch database and dependencies are installed on this computer. In PowerShell, change to this folder and run:
+```powershell
+.\start-local.ps1
+.\stop-local.ps1
+```
 
-~~~powershell
-powershell -ExecutionPolicy Bypass -File .\start-local.ps1
-~~~
+Dashboard: http://127.0.0.1:5173. API documentation: http://127.0.0.1:8000/docs.
 
-Dashboard: http://127.0.0.1:5173. API documentation: http://127.0.0.1:8000/docs. The worker fetches immediately on startup, then every 10 minutes; React refreshes every 45 seconds. Services bind to localhost. Closing the browser does not stop monitoring.
+The start script launches the API, worker and frontend server as separate local processes. The worker fetches immediately, then waits 10 minutes between completed cycles. React refreshes about every 45 seconds. Closing the browser leaves the worker running. Stop shuts down the application processes but leaves SQL Server and stored records intact.
 
-~~~powershell
-powershell -ExecutionPolicy Bypass -File .\stop-local.ps1
-~~~
+Logs and process IDs are stored in `.local-runtime/`. The stop script checks process start times before stopping a recorded process.
 
-Stopping leaves SQL Server and all stored records intact. Logs are in .local-runtime/. Start refuses duplicate managed services; stop checks process IDs and startup times. Run as the Windows user with SQL Server access.
+## Configuration
 
-## Setup on another Windows computer
+`.env.example` lists connection settings, polling intervals and risk thresholds. The worker interval is constrained to 300–600 seconds; the frontend refresh interval is constrained to 30–60 seconds. Restart services after changing backend settings. Rebuild the frontend after changing a `VITE_` setting.
 
-Install Python 3.11+ and Node.js 22+ (or use the detected Codex bundled runtimes). With permission to install SQL Server and ODBC:
+`backend/sources.json` configures the RSS, earthquake and regulatory feeds. `backend/aliases.json` maps alternate supplier names. OpenAI is added as a source when enabled in the environment.
 
-~~~powershell
-powershell -ExecutionPolicy Bypass -File .\setup-local.ps1 -InstallSqlServer
-powershell -ExecutionPolicy Bypass -File .\start-local.ps1
-~~~
+Keep credentials out of frontend variables. The default SQL connection trusts the local server certificate; configure certificate validation for other environments.
 
-If SQL Server exists, omit -InstallSqlServer and configure .env from .env.example. The default uses Windows integrated authentication, ODBC Driver 18, encryption and trust for the local SQL Server certificate. The Windows user needs initial database creation/migration permissions. Never place SQL credentials in frontend variables. Downloads and feeds require outbound internet access; inbound internet access is unnecessary.
+## Troubleshooting
 
-## Pipeline and stack
+| Symptom                                 | Check                                                                                                 |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| SQL Server unavailable                  | Instance name, running SQL service, ODBC installation and Windows account permissions                 |
+| OpenAI source failed                    | API key, account access, model availability and API quota                                             |
+| No active events                        | Source refresh times and article filtering reasons; a successful cycle may find no qualifying reports |
+| Worker offline                          | `.local-runtime/worker.error.log` and database connectivity                                           |
+| Frontend does not reflect configuration | Rebuild with `npm run build`, then restart                                                            |
+| Services already running                | Stop the existing managed processes before starting again                                             |
 
-1. backend/feeds.py fetches HTTPS RSS/JSON with timeouts, retries and conditional requests, normalizing source IDs, URLs, titles, summaries and publication/retrieval timestamps.
-2. backend/worker.py stores raw articles in SQL Server before processing. Stable article IDs prevent repeat ingestion; a SQL application lock prevents duplicate workers. Feed failures are recorded independently.
-3. backend/processing.py applies age/relevance/disruption filters, explicit supplier aliases and geographic exposure matching. It assigns taxonomy, severity, confidence and exposure status. Token Jaccard similarity, matched targets and a 48-hour window cluster duplicate reports. Distinct USGS event IDs remain separate.
-4. backend/repository.py transactionally writes processing status, events and article/supplier mappings. It updates supplier and regional risk and appends both histories. Initialization seeds sourcing once; normal requests read SQL Server.
-5. backend/main.py exposes FastAPI endpoints. src/live.js polls without overlapping requests and updates React. Database or stale-worker failure is visible; fabricated news is never substituted.
+A failed feed does not stop the other sources. Database failures are reported as unavailable; previously stored data is not replaced with sample news.
 
-Frontend: React 19, Vite 7, Lucide, d3-geo. Backend: Python, FastAPI, uvicorn, httpx, feedparser, pyodbc. Persistence: Microsoft SQL Server Express and ODBC Driver 18. Natural Earth supplies static public-domain map geography. Optional OpenAI Responses web search discovers cited recent reports. Relevance matching and scoring remain rule based. See the root README for OpenAI configuration.
+## Database and API
 
-## Sources and settings
+`backend/schema.sql` and `backend/migrations/` define suppliers, components, sourcing relationships, articles, events, evidence mappings, risk histories and ingestion status. Initialization seeds the sourcing network once. Normal requests read SQL Server.
 
-backend/sources.json configures Semiconductor Digest RSS, USGS magnitude 4.5+ weekly earthquake reports, and Federal Register Bureau of Industry and Security semiconductor documents. These three feeds require no keys. Optional OpenAI search requires OPENAI_API_KEY and OPENAI_NEWS_ENABLED=true. backend/aliases.json contains supplier aliases. Ordinary or old articles remain stored but do not become active risk events. Quiet periods may have zero signals.
-
-.env.example documents polling, event age, decay, clustering, weights and CORS. Worker polling is constrained to 300–600 seconds; frontend to 30–60 seconds. Changes to VITE variables require npm run build with Node on PATH. Restart after backend changes.
-
-## Risk model and limitations
-
-Event risk = severity × source credibility × matching confidence × recency. Recency halves every 48 hours; events expire after seven days. Supplier risk is the maximum matched active contribution, so repeated coverage does not add severity. Regional matches receive a 0.65 weight; low-confidence matches an additional 0.5 weight. API responses expose configurable weights. High risk starts at 0.45; moderate at 0.15.
-
-Structural criticality is separate: sum(component importance / supplier count), normalized to the highest supplier. A Critical alert requires high live risk, at most one alternative and criticality ≥50. Other elevated constrained suppliers are Investigate. Simulation removes selected suppliers from the illustrative graph without changing stored sourcing.
-
-“Reported interruption” means a source explicitly reports interruption, not independent verification. Confidence is rule-based matching confidence, not a calibrated probability. Rules may miss indirect references or misclassify complex language. Geographic matching uses illustrative coordinates, not verified facilities. Selective feed coverage means no active signal never proves safety. Replace sourcing and coordinates with validated procurement data before operational decisions.
-
-## SQL and API
-
-backend/schema.sql and backend/migrations/002_live.sql define Supplier, Component, SupplyRelationship, Article, LiveEvent, EventArticle, EventSupplier, SupplierRisk, RegionalRisk, both history tables, SourceState, IngestionRun and SchemaMigration. Legacy RiskEvent remains for compatibility; live ingestion uses LiveEvent. Initialization is idempotent.
-
-Endpoints include /api/health, /api/network, /api/analysis, /api/news/latest, /api/events/active, /api/alerts, /api/ingestion/status, /api/suppliers/{id}/risk, /api/suppliers/{id}/risk/history, /api/regions/{region}/risk, /api/scenarios and POST /api/simulate. See /docs. SQL failure gives explicit unavailability; individual source failure gives partial coverage; stale monitoring shows offline.
-
-## Verification
-
-~~~powershell
-$env:SILICONWATCH_SQL_TESTS='1'
-.\.venv\Scripts\python.exe -m unittest discover -s backend -v
-node tests.mjs
-npm run build
-~~~
-
-Unit tests cover aliases, relevance, negation, uncertainty, geography, decay, expiry, clustering and aggregation. Integration tests create/remove a separate real SQL Server database and check persistence, mappings, histories, feed failure, API, simulation and deduplication. Mock articles are restricted to automated tests. backend/test_browser_fixture.py enforces an isolated test-database name for verifying React automatic refresh through SQL and FastAPI.
-
-The source package excludes .env, dependencies, runtime logs, database files and Git history. Use SQL Server backup tools to back up persistent data.
+FastAPI documents the endpoints at `/docs`, including network inspection, active events, source health, supplier risk history and simulation. Use SQL Server backup tools to back up persistent records.

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="730" viewBox="0 0 1440 730" role="img" aria-labelledby="title desc">
+<title id="title">Silicon Watch: from news to supplier exposure</title>
+<desc id="desc">Four stages run left to right: discover reports using OpenAI web search and external feeds; normalize and validate records before storing articles in SQL Server; filter relevance, match suppliers, cluster reports and store scored events; serve results through FastAPI to a React dashboard with supplier analysis and simulations.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 8 5 L 0 9" fill="none" stroke="#6f93a7" stroke-width="1.5"/></marker></defs>
+<rect width="1440" height="730" rx="24" fill="#0d1721"/>
+<g font-family="Segoe UI, Arial, sans-serif">
+<text x="48" y="48" fill="#73d8bf" font-size="15" font-weight="700" letter-spacing="3">SILICON WATCH / SYSTEM PIPELINE</text>
+<text x="48" y="99" fill="#f0f5f8" font-size="34" font-weight="650">From news to supplier exposure</text>
+<text x="48" y="133" fill="#9fb2c0" font-size="20">A source-linked path from incoming reports to component coverage analysis.</text>
+
+<rect x="48" y="177" width="318" height="366" rx="15" fill="#152431" stroke="#2c414f"/>
+<rect x="48" y="177" width="318" height="4" rx="2" fill="#75c9fc"/>
+<text x="70" y="217" fill="#75c9fc" font-size="14" font-weight="700" letter-spacing="2">01 / DISCOVER</text>
+<text x="70" y="253" fill="#eff5f8" font-size="21" font-weight="600">Find current reports</text>
+<circle cx="73" cy="285" r="3" fill="#75c9fc"/>
+<text x="88" y="290" fill="#dfebf1" font-size="18" font-weight="600">OpenAI web search</text>
+<text x="88" y="314" fill="#9fb4c3" font-size="15">Cited news discovery</text>
+<circle cx="73" cy="353" r="3" fill="#75c9fc"/>
+<text x="88" y="358" fill="#dfebf1" font-size="18" font-weight="600">Industry RSS</text>
+<text x="88" y="382" fill="#9fb4c3" font-size="15">Semiconductor reporting</text>
+<circle cx="73" cy="421" r="3" fill="#75c9fc"/>
+<text x="88" y="426" fill="#dfebf1" font-size="18" font-weight="600">USGS + Federal Register</text>
+<text x="88" y="450" fill="#9fb4c3" font-size="15">Earthquakes and trade rules</text>
+<line x1="70" y1="487" x2="344" y2="487" stroke="#304451"/>
+<text x="70" y="518" fill="#75c9fc" font-size="15">Python collection worker</text>
+<path d="M370 361 H386" stroke="#6f93a7" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="390" y="177" width="318" height="366" rx="15" fill="#152431" stroke="#2c414f"/>
+<rect x="390" y="177" width="318" height="4" rx="2" fill="#74ddc0"/>
+<text x="412" y="217" fill="#74ddc0" font-size="14" font-weight="700" letter-spacing="2">02 / PREPARE</text>
+<text x="412" y="253" fill="#eff5f8" font-size="21" font-weight="600">Make records usable</text>
+<circle cx="415" cy="285" r="3" fill="#74ddc0"/>
+<text x="430" y="290" fill="#dfebf1" font-size="18" font-weight="600">Normalize</text>
+<text x="430" y="314" fill="#9fb4c3" font-size="15">Clean text, URLs and dates</text>
+<circle cx="415" cy="353" r="3" fill="#74ddc0"/>
+<text x="430" y="358" fill="#dfebf1" font-size="18" font-weight="600">Validate</text>
+<text x="430" y="382" fill="#9fb4c3" font-size="15">Check citations and freshness</text>
+<circle cx="415" cy="421" r="3" fill="#74ddc0"/>
+<text x="430" y="426" fill="#dfebf1" font-size="18" font-weight="600">Archive articles</text>
+<text x="430" y="450" fill="#9fb4c3" font-size="15">SQL Server + stable article IDs</text>
+<line x1="412" y1="487" x2="686" y2="487" stroke="#304451"/>
+<text x="412" y="518" fill="#74ddc0" font-size="15">Retain evidence before filtering</text>
+<path d="M712 361 H728" stroke="#6f93a7" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="732" y="177" width="318" height="366" rx="15" fill="#152431" stroke="#2c414f"/>
+<rect x="732" y="177" width="318" height="4" rx="2" fill="#b4a0fa"/>
+<text x="754" y="217" fill="#b4a0fa" font-size="14" font-weight="700" letter-spacing="2">03 / ASSESS</text>
+<text x="754" y="253" fill="#eff5f8" font-size="21" font-weight="600">Connect news to suppliers</text>
+<circle cx="757" cy="285" r="3" fill="#b4a0fa"/>
+<text x="772" y="290" fill="#dfebf1" font-size="18" font-weight="600">Filter and match</text>
+<text x="772" y="314" fill="#9fb4c3" font-size="15">Relevance, aliases and geography</text>
+<circle cx="757" cy="353" r="3" fill="#b4a0fa"/>
+<text x="772" y="358" fill="#dfebf1" font-size="18" font-weight="600">Cluster and score</text>
+<text x="772" y="382" fill="#9fb4c3" font-size="15">Duplicate reports, exposure, decay</text>
+<circle cx="757" cy="421" r="3" fill="#b4a0fa"/>
+<text x="772" y="426" fill="#dfebf1" font-size="18" font-weight="600">Persist results</text>
+<text x="772" y="450" fill="#9fb4c3" font-size="15">SQL Server events and risk history</text>
+<line x1="754" y1="487" x2="1028" y2="487" stroke="#304451"/>
+<text x="754" y="518" fill="#b4a0fa" font-size="15">Explain each match and score</text>
+<path d="M1054 361 H1070" stroke="#6f93a7" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="1074" y="177" width="318" height="366" rx="15" fill="#152431" stroke="#2c414f"/>
+<rect x="1074" y="177" width="318" height="4" rx="2" fill="#f0bd79"/>
+<text x="1096" y="217" fill="#f0bd79" font-size="14" font-weight="700" letter-spacing="2">04 / EXPLORE</text>
+<text x="1096" y="253" fill="#eff5f8" font-size="21" font-weight="600">Inspect supply dependencies</text>
+<circle cx="1099" cy="285" r="3" fill="#f0bd79"/>
+<text x="1114" y="290" fill="#dfebf1" font-size="18" font-weight="600">FastAPI</text>
+<text x="1114" y="314" fill="#9fb4c3" font-size="15">Serve records and risk calculations</text>
+<circle cx="1099" cy="353" r="3" fill="#f0bd79"/>
+<text x="1114" y="358" fill="#dfebf1" font-size="18" font-weight="600">React dashboard</text>
+<text x="1114" y="382" fill="#9fb4c3" font-size="15">Map, suppliers and source links</text>
+<circle cx="1099" cy="421" r="3" fill="#f0bd79"/>
+<text x="1114" y="426" fill="#dfebf1" font-size="18" font-weight="600">Disruption simulation</text>
+<text x="1114" y="450" fill="#9fb4c3" font-size="15">Remove suppliers; check coverage</text>
+<line x1="1096" y1="487" x2="1370" y2="487" stroke="#304451"/>
+<text x="1096" y="518" fill="#f0bd79" font-size="15">Review evidence and alternatives</text>
+<rect x="48" y="575" width="1344" height="105" rx="13" fill="#101e29" stroke="#283e4b"/>
+<line x1="494" y1="597" x2="494" y2="658" stroke="#2b414f"/>
+<line x1="944" y1="597" x2="944" y2="658" stroke="#2b414f"/>
+<text x="72" y="612" fill="#dce8ef" font-size="18" font-weight="600">Scheduled collection</text>
+<text x="72" y="643" fill="#95aebf" font-size="16">On startup, then ~10 min between cycles</text>
+<text x="518" y="612" fill="#dce8ef" font-size="18" font-weight="600">Traceable results</text>
+<text x="518" y="643" fill="#95aebf" font-size="16">Source links, timestamps and match reasons</text>
+<text x="968" y="612" fill="#dce8ef" font-size="18" font-weight="600">Automatic dashboard refresh</text>
+<text x="968" y="643" fill="#95aebf" font-size="16">Updated about every 45 seconds</text>
+</g></svg>

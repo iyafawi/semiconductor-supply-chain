@@ -1,36 +1,48 @@
 param([switch]$InstallSqlServer)
-$ErrorActionPreference='Stop'
-$taskProject=Split-Path -Parent $MyInvocation.MyCommand.Path
-Set-Location -LiteralPath $taskProject
-if($InstallSqlServer){
-  winget install --id Microsoft.SQLServer.2025.Express --exact --source winget --silent --accept-package-agreements --accept-source-agreements
-  if($LASTEXITCODE -ne 0){throw 'SQL Server installation failed or requires Windows elevation. Install Express and retry.'}
-  winget install --id Microsoft.msodbcsql.18 --exact --source winget --silent --accept-package-agreements --accept-source-agreements
+
+$ErrorActionPreference = 'Stop'
+$projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+Set-Location -LiteralPath $projectRoot
+
+if ($InstallSqlServer) {
+    winget install --id Microsoft.SQLServer.2025.Express --exact --source winget --silent --accept-package-agreements --accept-source-agreements
+    if ($LASTEXITCODE -ne 0) {
+        throw 'SQL Server installation failed. Install Express and retry.'
+    }
+    winget install --id Microsoft.msodbcsql.18 --exact --source winget --silent --accept-package-agreements --accept-source-agreements
+    if ($LASTEXITCODE -ne 0) {
+        throw 'ODBC Driver 18 installation failed.'
+    }
 }
-if(!(Test-Path '.env')){Copy-Item -LiteralPath '.env.example' -Destination '.env'}
-$taskPython=$env:SILICONWATCH_PYTHON
-if(!$taskPython){
-  $taskBundled=Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
-  if(Test-Path -LiteralPath $taskBundled){$taskPython=$taskBundled}else{$taskPython='python'}
+
+$pythonExe = $env:SILICONWATCH_PYTHON
+if (!$pythonExe) { $pythonExe = 'python' }
+if (!(Get-Command $pythonExe -ErrorAction SilentlyContinue)) {
+    throw 'Install Python 3.11+ or set SILICONWATCH_PYTHON to its executable path.'
 }
-if(!(Test-Path '.venv\Scripts\python.exe')){& $taskPython -m venv .venv;if($LASTEXITCODE -ne 0){throw 'Install Python 3.11+ or set SILICONWATCH_PYTHON.'}}
+if (!(Get-Command node -ErrorAction SilentlyContinue) -or !(Get-Command npm.cmd -ErrorAction SilentlyContinue)) {
+    throw 'Install Node.js 22+ with npm and add it to PATH.'
+}
+
+if (!(Test-Path -LiteralPath '.env')) {
+    Copy-Item -LiteralPath '.env.example' -Destination '.env'
+}
+if (!(Test-Path -LiteralPath '.venv\Scripts\python.exe')) {
+    & $pythonExe -m venv .venv
+    if ($LASTEXITCODE -ne 0) { throw 'Python virtual environment creation failed.' }
+}
+
 & .\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt
-if($LASTEXITCODE -ne 0){throw 'Python dependency installation failed'}
+if ($LASTEXITCODE -ne 0) { throw 'Python dependency installation failed.' }
+
 & .\.venv\Scripts\python.exe backend\repository.py
-if($LASTEXITCODE -ne 0){throw 'SQL Server connection or initialization failed. Set SQLSERVER_CONNECTION_STRING in .env.'}
-$taskNode=$env:SILICONWATCH_NODE
-if(!$taskNode){$taskNode=(Get-Command node -ErrorAction SilentlyContinue).Source}
-if(!$taskNode){$taskNode=Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe'}
-if(!(Test-Path 'node_modules\vite\bin\vite.js')){
-  $taskNpm=Get-Command npm -ErrorAction SilentlyContinue
-  if($taskNpm){npm install}else{
-    $taskPnpm=Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules\pnpm\bin\pnpm.cjs'
-    if(!(Test-Path -LiteralPath $taskPnpm)){throw 'Install Node.js 22+ with npm first.'}
-    & $taskNode $taskPnpm install
-  }
-  if($LASTEXITCODE -ne 0){throw 'Frontend dependency installation failed'}
+if ($LASTEXITCODE -ne 0) {
+    throw 'SQL Server initialization failed. Check SQLSERVER_CONNECTION_STRING in .env.'
 }
-# Vite reads VITE_API_URL from .env; Python reads only its backend settings.
-& $taskNode node_modules\vite\bin\vite.js build
-if($LASTEXITCODE -ne 0){throw 'Frontend build failed'}
-Write-Host 'Local system ready. Run .\start-local.ps1'
+
+& npm.cmd ci --ignore-scripts
+if ($LASTEXITCODE -ne 0) { throw 'Frontend dependency installation failed.' }
+& npm.cmd run build
+if ($LASTEXITCODE -ne 0) { throw 'Frontend build failed.' }
+
+Write-Host 'Setup complete. Run .\start-local.ps1'
