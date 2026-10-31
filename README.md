@@ -14,25 +14,24 @@ The project was inspired by [World Monitor](https://github.com/koala73/worldmoni
 
 ## Pipeline
 
-```mermaid
-flowchart LR
-    A["Collect news<br/>OpenAI + public feeds"] --> B["Clean & save<br/>Text, links and dates"]
-    B --> C["Match suppliers<br/>Relevance, names and location"]
-    C --> D["Assess exposure<br/>Group reports and score risk"]
-    D --> E["View results<br/>Dashboard and simulations"]
+```text
+┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
+│ DATA SOURCES            │     │ PYTHON WORKER           │     │ SQL SERVER              │     │ FASTAPI + REACT         │
+│                         │     │                         │     │                         │     │                         │
+│ OpenAI web search*      │     │ Normalize articles      │     │ Articles + source URLs  │     │ API endpoints           │
+│ Semiconductor Digest    │ ──▶ │ Filter disruption news  │ ◀─▶ │ Suppliers + components  │ ──▶ │ Supplier exposure map   │
+│ USGS earthquakes        │     │ Match supplier aliases  │     │ Events + matches        │     │ Component dependencies  │
+│ Federal Register / BIS  │     │ Cluster and score risk  │     │ Risk history            │     │ Disruption simulations  │
+└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
 ```
 
-SQL Server stores the articles, matched events and score history. FastAPI serves the results to the React dashboard.
+1. **Collect:** The Python worker retrieves Semiconductor Digest articles, USGS earthquake reports and BIS notices from the Federal Register. When enabled, OpenAI web search adds cited semiconductor news.
+2. **Clean and store:** Normalize text, links and dates, then save article records in SQL Server. Stable IDs prevent repeat ingestion. OpenAI results must include a cited HTTPS link and a recent publication date.
+3. **Filter and match:** Keep relevant disruption reports and resolve supplier aliases, such as “Taiwan Semiconductor Manufacturing” to TSMC. Earthquakes are matched by distance from the sample supplier locations. Negation and uncertainty checks limit unsupported outage claims.
+4. **Assess exposure:** Group similar reports and calculate scores from severity, source credibility, matching confidence and recency. Save the events, supplier matches and risk history. OpenAI summaries remain low-confidence leads.
+5. **Explore dependencies:** FastAPI serves the stored results to React. The dashboard shows potentially exposed suppliers and their components. Simulations remove selected suppliers from the sample network to identify components with fewer alternatives or no remaining coverage.
 
-The worker collects news on startup and waits 10 minutes between completed cycles. React refreshes about every 45 seconds. Monitoring continues after the browser closes, provided the worker stays running.
-
-Before a report becomes a signal:
-
-- Text is cleaned and tracking parameters are removed from links. Stable IDs prevent repeated articles from being stored twice.
-- Old reports and unrelated announcements are filtered out with a recorded reason.
-- Supplier aliases resolve names such as “Taiwan Semiconductor Manufacturing” to TSMC. Geographic matches are tracked separately.
-- Negation and uncertainty checks reduce unsupported outage claims. OpenAI summaries remain low-confidence leads with links to their sources.
-- Similar reports are grouped so repeated coverage does not keep increasing the score.
+\*OpenAI search requires an API key and `OPENAI_NEWS_ENABLED=true`. The worker collects on startup, then waits 10 minutes between completed cycles. React refreshes about every 45 seconds. Monitoring continues after the browser closes while the worker remains running.
 
 [Processing rules and scoring formulas](docs/PIPELINE.md)
 
