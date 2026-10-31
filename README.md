@@ -1,98 +1,124 @@
 # Silicon Watch
 
-Semiconductor supply-chain monitoring with Python, FastAPI, React, SQL Server and the OpenAI API.
+A dashboard that watches the news for semiconductor supply-chain disruptions and shows which suppliers and chip components could be affected.
 
-## Problem
+Built with Python, FastAPI, React, SQL Server and the OpenAI API.
 
-A disruption at one supplier can leave several chip components without a backup source. News reports rarely explain those dependencies. A procurement team still needs to work out which suppliers are exposed and which components depend on them.
+## The problem
 
-## Approach
+Chips depend on a long chain of suppliers. When one of them is hit by an earthquake, a factory fire or a new export rule, the news tells you what happened, but not what it means for you. Someone still has to work out:
 
-Silicon Watch connects recent news to a supplier-component network. It filters unrelated reports, matches supplier names and shows the evidence behind each signal. A disruption simulator lets you remove a supplier and check which components lose coverage.
+- Which of our suppliers are involved?
+- Which components do they make for us?
+- Do we have another source for those components?
 
-The project was inspired by [World Monitor](https://github.com/koala73/worldmonitor), particularly its use of news and geographic context in a single dashboard.
+Doing that by hand, across many news sources, is slow and easy to get wrong.
 
-## Pipeline
+## The solution
 
-```text
-┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
-│ DATA SOURCES            │     │ PYTHON WORKER           │     │ SQL SERVER              │     │ FASTAPI + REACT         │
-│                         │     │                         │     │                         │     │                         │
-│ OpenAI web search*      │     │ Normalize articles      │     │ Articles + source URLs  │     │ API endpoints           │
-│ Semiconductor Digest    │ ──▶ │ Filter disruption news  │ ◀─▶ │ Suppliers + components  │ ──▶ │ Supplier exposure map   │
-│ USGS earthquakes        │     │ Match supplier aliases  │     │ Events + matches        │     │ Component dependencies  │
-│ Federal Register / BIS  │     │ Cluster and score risk  │     │ Risk history            │     │ Disruption simulations  │
-└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
+Silicon Watch does that work automatically. It:
+
+1. **Reads the news** from trusted sources every few minutes.
+2. **Throws out the noise**, keeping only reports about real disruptions.
+3. **Links each report to a supplier**, so "Taiwan Semiconductor Manufacturing" is recognised as TSMC.
+4. **Scores the risk** based on how serious, recent and reliable the report is.
+5. **Shows the impact** on a map and a supplier–component network, with a link back to every source.
+
+A built-in simulator lets you remove a supplier and see which components are left with fewer backups, or none at all.
+
+The idea was inspired by [World Monitor](https://github.com/koala73/worldmonitor), which combines news and maps in a single dashboard.
+
+## How it works
+
+```mermaid
+flowchart LR
+    subgraph Sources["News sources"]
+        direction TB
+        S1["Semiconductor Digest"]
+        S2["USGS earthquakes"]
+        S3["Federal Register (BIS)"]
+        S4["OpenAI web search (optional)"]
+    end
+
+    W["Python worker<br/>clean, filter, match suppliers, score risk"]
+    DB[("SQL Server<br/>articles, suppliers, events, risk history")]
+    API["FastAPI"]
+    UI["React dashboard<br/>map, exposure, simulations"]
+
+    Sources --> W
+    W --> DB
+    DB --> API
+    API --> UI
 ```
 
-1. **Collect:** The Python worker retrieves Semiconductor Digest articles, USGS earthquake reports and BIS notices from the Federal Register. When enabled, OpenAI web search adds cited semiconductor news.
-2. **Clean and store:** Normalize text, links and dates, then save article records in SQL Server. Stable IDs prevent repeat ingestion. OpenAI results must include a cited HTTPS link and a recent publication date.
-3. **Filter and match:** Keep relevant disruption reports and resolve supplier aliases, such as “Taiwan Semiconductor Manufacturing” to TSMC. Earthquakes are matched by distance from the sample supplier locations. Negation and uncertainty checks limit unsupported outage claims.
-4. **Assess exposure:** Group similar reports and calculate scores from severity, source credibility, matching confidence and recency. Save the events, supplier matches and risk history. OpenAI summaries remain low-confidence leads.
-5. **Explore dependencies:** FastAPI serves the stored results to React. The dashboard shows potentially exposed suppliers and their components. Simulations remove selected suppliers from the sample network to identify components with fewer alternatives or no remaining coverage.
+- The **worker** runs in the background. It collects news on startup, then every 10 minutes.
+- Every article is cleaned and stored once, even if it shows up again later.
+- Each kept report is matched to suppliers by name, or by distance for earthquakes.
+- Similar reports are grouped, so the same story repeated by ten outlets doesn't count ten times.
+- The **dashboard** refreshes about every 45 seconds. Monitoring keeps running after you close the browser.
+- OpenAI results must cite a real, recent link, and are always treated as low-confidence leads.
 
-\*OpenAI search requires an API key and `OPENAI_NEWS_ENABLED=true`. The worker collects on startup, then waits 10 minutes between completed cycles. React refreshes about every 45 seconds. Monitoring continues after the browser closes while the worker remains running.
+Full details on the filtering rules and scoring formulas are in [docs/PIPELINE.md](docs/PIPELINE.md).
 
-[Processing rules and scoring formulas](docs/PIPELINE.md)
-
-## Stack
+## Tech stack
 
 | Layer                   | Technology                                      |
 | ----------------------- | ----------------------------------------------- |
 | Collection and analysis | Python, OpenAI Responses API, httpx, feedparser |
-| Backend                 | FastAPI                                         |
+| API                     | FastAPI                                         |
 | Database                | SQL Server, pyodbc                              |
-| Interface               | React, JavaScript, Vite, CSS                    |
+| Dashboard               | React, Vite, JavaScript, CSS                    |
 | Map                     | d3-geo, Natural Earth                           |
 
-## Run locally
+## Run it locally
 
-Requires Windows, Python 3.11+, Node.js 22+, SQL Server Express and ODBC Driver 18.
+You'll need Windows, Python 3.11+, Node.js 22+, SQL Server Express and ODBC Driver 18.
 
-```powershell
-Copy-Item .env.example .env
-```
+1. Copy the example settings file:
 
-Set the SQL Server connection in `.env`. To enable OpenAI news search, add:
+   ```powershell
+   Copy-Item .env.example .env
+   ```
 
-```dotenv
-OPENAI_NEWS_ENABLED=true
-OPENAI_API_KEY=your_api_key_here
-OPENAI_MODEL=gpt-5-mini
-INGESTION_POLL_SECONDS=600
-```
+2. Set your SQL Server connection in `.env`. To turn on OpenAI news search (optional, and it costs money per search), also add:
 
-OpenAI searches incur API charges. Keep the key in the backend environment; `.env` is excluded from Git.
+   ```dotenv
+   OPENAI_NEWS_ENABLED=true
+   OPENAI_API_KEY=your_api_key_here
+   OPENAI_MODEL=gpt-5-mini
+   ```
 
-```powershell
-.\setup-local.ps1
-.\start-local.ps1
-```
+3. Install and start:
 
-Open [the dashboard](http://127.0.0.1:5173) or [API documentation](http://127.0.0.1:8000/docs). Stop the application with `.\stop-local.ps1`.
+   ```powershell
+   .\setup-local.ps1
+   .\start-local.ps1
+   ```
 
-[Installation and troubleshooting](docs/SETUP.md)
+4. Open [the dashboard](http://127.0.0.1:5173) or [the API docs](http://127.0.0.1:8000/docs). Stop everything with `.\stop-local.ps1`.
 
-## Source layout
+Having trouble? See [docs/SETUP.md](docs/SETUP.md).
 
-| Path                                        | Purpose                                            |
-| ------------------------------------------- | -------------------------------------------------- |
-| `backend/openai_news.py`                    | Web search and cited-result validation             |
-| `backend/feeds.py`                          | Feed retrieval and article normalization           |
-| `backend/processing.py`                     | Relevance filtering, supplier matching and scoring |
-| `backend/worker.py`                         | Scheduled collection and processing                |
-| `backend/repository.py`                     | SQL persistence                                    |
-| `backend/main.py`                           | API endpoints                                      |
-| `backend/schema.sql`, `backend/migrations/` | Database schema                                    |
-| `src/`                                      | Dashboard and interactive simulations              |
-| `scripts/generate-seed.mjs`                 | Reproducible sample network                        |
+## Project layout
 
-## Data and limitations
+| Path                                        | What it does                             |
+| ------------------------------------------- | ---------------------------------------- |
+| `backend/feeds.py`                          | Fetches and cleans news feeds            |
+| `backend/openai_news.py`                    | OpenAI web search and citation checks    |
+| `backend/processing.py`                     | Filtering, supplier matching and scoring |
+| `backend/worker.py`                         | Runs collection on a schedule            |
+| `backend/repository.py`                     | Reads and writes SQL Server              |
+| `backend/main.py`                           | API endpoints                            |
+| `backend/schema.sql`, `backend/migrations/` | Database schema                          |
+| `src/`                                      | React dashboard and simulator            |
+| `scripts/generate-seed.mjs`                 | Builds the sample supplier network       |
 
-The sample network contains 48 suppliers, 303 relationships, 32 components and 54 scenarios. Its sourcing relationships and locations are illustrative. Replace them with validated records before using the results for procurement decisions.
+## Limitations
 
-Live inputs come from configured news feeds, USGS, Federal Register BIS documents and optional OpenAI web search. Search coverage is incomplete; a quiet dashboard does not establish that a supplier is safe. Scores rank potential exposure and are not outage probabilities. Simulations measure component coverage, without modelling inventory or production capacity.
+- **The supplier network is sample data.** It has 48 suppliers, 32 components and 303 links between them, but the relationships and locations are illustrative. Swap in real data before making buying decisions with it.
+- **No news doesn't mean no risk.** The sources don't cover everything, so a quiet dashboard doesn't prove a supplier is safe.
+- **Scores rank risk, they don't predict it.** A high score means "look at this first", not "this will fail".
+- **Simulations only count backup suppliers.** They don't model inventory, production capacity or recovery time.
+- **Built for one machine.** It only listens on localhost. Sharing it would need login and monitoring added.
 
-The OpenAI adapter has automated response-validation tests. Live retrieval quality still needs evaluation with a configured API key. The application binds to localhost; a shared deployment needs authentication and service monitoring.
-
-[Tests and development](docs/VALIDATION.md) · [Attribution](docs/ATTRIBUTION.md)
+More: [Testing](docs/VALIDATION.md) · [Attribution](docs/ATTRIBUTION.md)
