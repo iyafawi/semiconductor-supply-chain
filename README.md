@@ -14,7 +14,15 @@ The project was inspired by [World Monitor](https://github.com/koala73/worldmoni
 
 ## Pipeline
 
-![Silicon Watch pipeline: discover reports, prepare records, assess supplier exposure and explore component coverage.](docs/assets/pipeline.svg)
+```mermaid
+flowchart LR
+    A["Collect news<br/>OpenAI + public feeds"] --> B["Clean & save<br/>Text, links and dates"]
+    B --> C["Match suppliers<br/>Relevance, names and location"]
+    C --> D["Assess exposure<br/>Group reports and score risk"]
+    D --> E["View results<br/>Dashboard and simulations"]
+```
+
+SQL Server stores the articles, matched events and score history. FastAPI serves the results to the React dashboard.
 
 The worker collects news on startup and waits 10 minutes between completed cycles. React refreshes about every 45 seconds. Monitoring continues after the browser closes, provided the worker stays running.
 
